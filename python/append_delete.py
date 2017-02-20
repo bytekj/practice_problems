@@ -53,6 +53,12 @@ def check_convert(original_string, target_string, n_operations):
         #special cases
         if n_operations > (len_original + len_target):
             return True
+        else:
+            if original_string == target_string and n_operations%2 == 0:
+                return True
+            elif original_string == target_string and n_operations%2 != 0:
+                return False
+
         if original_string[similar_index] == target_string[similar_index]   \
                 and similar_index < len_original:
             similar_index += 1
@@ -76,7 +82,11 @@ def check_convert(original_string, target_string, n_operations):
         return True
 
 def main():
-    if check_convert("qwerty", "zxcvbn", 100):
+    s1 = "asdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv"
+    s2 = "asdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv"
+    t = 20
+
+    if check_convert(s1, s2, t):
         print("True")
     else:
         print("False")
