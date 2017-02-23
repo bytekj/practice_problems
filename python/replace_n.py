@@ -8,12 +8,14 @@ def replace(n, array):
             if array[end] == n:
                 while array[end] == n:
                     end -= 1
+                    if i == end:
+                        return end
             temp = array[end]
             array[end] = array[i]
             array[i] = temp
-            i += 1
+        i += 1
         if i == end:
             break
     return end
 
-print(replace(2, [4, 3, 2, 1, 2, 3, 6]))
+print(replace(2, [2, 3, 2, 1, 2, 3, 2]))
